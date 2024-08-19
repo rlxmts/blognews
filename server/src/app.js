@@ -1,10 +1,7 @@
 import express from "express";
+import routes from "./routes/index.js";
 
 const app = express();
-
-app.get("/", (req, res) => {
-    res.status(200).send("Rota inicial da API");
-});
-
+routes(app);
 
 export default app;
