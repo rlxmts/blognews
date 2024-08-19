@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import Cabecalho from "./components/Layout/Cabecalho";
 
 function App() {
   return (
     <>
-      <h1>Olá mundo!</h1>
+      <Cabecalho />  
     </>
   )
 }
