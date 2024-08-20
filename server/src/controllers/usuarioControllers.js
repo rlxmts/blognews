@@ -9,7 +9,9 @@ class UsuarioController {
             const user = await usuario.findOne({  usuario });
             if(!user) {
                 return res.status(400).send("Usuario incorreto!");
-            }
+            }           
+        }catch(erro){
+            console.log(erro);
         }
     }
 }
