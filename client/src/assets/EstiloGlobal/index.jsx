@@ -32,7 +32,7 @@ const EstiloGlobal = createGlobalStyle`
         box-sizing: border-box;
         font-size: 16px;
         color: #000000;
-        font-weight: 300;
+        font-weight: 400;
         font-family: "Montserrat";
         list-style: none;
     }

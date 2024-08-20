@@ -30,9 +30,24 @@ const Rodape = () => {
             <Container>
                 <Creditos> Feito por: Matheus Cruz</Creditos>
                 <ul>
-                    <li><LinksRedesSociais href="#">GitHub</LinksRedesSociais></li>
-                    <li><LinksRedesSociais href="#">Linkedin</LinksRedesSociais></li>
-                    <li><LinksRedesSociais href="#">Portfólio</LinksRedesSociais></li>
+                    <li><LinksRedesSociais 
+                        href="https://github.com/rlxmts" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >GitHub
+                    </LinksRedesSociais></li>
+                    <li><LinksRedesSociais 
+                        href="https://www.linkedin.com/in/matheusw16/" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >Linkedin
+                    </LinksRedesSociais></li>
+                    <li><LinksRedesSociais 
+                        href="https://horbiti.vercel.app/" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >Portfólio
+                    </LinksRedesSociais></li>
                 </ul>
             </Container>
         </Footer>

@@ -3,6 +3,8 @@ import Container from "../../Common/Container";
 import Logo from "../../Common/Logo";
 import CampoPesquisa from "../../Common/CampoPesquisa";
 import { FaRegMoon } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+import Login from "../../../Pages/Login";
 
 const Header = styled.header`
     height: 70px;
@@ -18,6 +20,13 @@ const Header = styled.header`
         align-items: center;
         justify-content: space-between;
     }
+
+    .botao-login{
+        color: #FFFFFF;
+        font-family: "Poppins";
+        font-weight: 500;
+        font-size: .9rem;
+    }
 `
 const Div = styled.div`
     display: flex ;
@@ -28,13 +37,6 @@ const Div = styled.div`
         cursor: pointer;
     }
 `
-const Login = styled.a`
-    color: #FFFFFF;
-    font-family: "Poppins";
-    font-weight: 500;
-    font-size: .9rem;
-`
-
 const Cabecalho = () => {
     return(
         <>
@@ -44,7 +46,7 @@ const Cabecalho = () => {
                         <Div>
                             <CampoPesquisa />
                             <FaRegMoon className="icon-tema" size={20} fill="#FFFFFF"/>
-                            <Login href="#">Login</Login>
+                            <Link to="/login" className="botao-login">Login</Link>
                         </Div>
                 </Container>
             </Header>

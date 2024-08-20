@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components"
 
 const H1 = styled.h1`
@@ -8,9 +9,9 @@ const H1 = styled.h1`
 
 const Logo = () => {
     return(
-        <a href="/">
+        <Link to="/">
             <H1>BlogNews</H1>
-        </a>
+        </Link>
     )
 }
 

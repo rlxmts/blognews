@@ -37,6 +37,7 @@ const PreviaTexto = styled.span`
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis; 
+    margin-top: 5px;
 `
 
 const GaleriaPosts = ()=> {
