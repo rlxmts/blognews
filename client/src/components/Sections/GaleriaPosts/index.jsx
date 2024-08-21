@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Container from "../../Common/Container";
 import { useBuscaPost } from "../../../Hooks/useBuscaPosts.js";
+import { Link } from "react-router-dom";
 
 const Section = styled.section`
     padding: 2rem 0;
@@ -49,10 +50,10 @@ const GaleriaPosts = ()=> {
                     {posts.map( item => {
                         return(
                             <Li key={item._id}>
-                                <a href="#">
+                                <Link to={`post/${item._id}`}>
                                     <TituloPost>{item.titulo}</TituloPost>
                                     <PreviaTexto>{item.texto}</PreviaTexto>
-                                </a>
+                                </Link>
                             </Li>
                         )
                     })}

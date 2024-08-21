@@ -5,6 +5,7 @@ import Login from "./Login";
 import Painel from "./Painel";
 import NovoPost from "./NovoPost";
 import Home from "./Home";
+import Post from "./Post";
 
 const AppRotas = () => {
     return(
@@ -15,6 +16,7 @@ const AppRotas = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/admin" element={<Painel />} />
             <Route path="/novo-post" element={<NovoPost />} />
+            <Route path="/post/:id" element={<Post />} />
         </Routes>
         <Rodape />
         </BrowserRouter>
