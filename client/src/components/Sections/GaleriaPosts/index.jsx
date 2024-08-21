@@ -1,7 +1,7 @@
 import react from "react";
 import styled from "styled-components";
 import Container from "../../Common/Container";
-import { useBuscaPost } from "../../../Hooks/useBuscaPosts.jsx";
+import { useBuscaPost } from "../../../Hooks/useBuscaPosts.js";
 
 const Section = styled.section`
     padding: 2rem 0;
