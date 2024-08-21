@@ -1,15 +1,9 @@
-import react from "react";
 import styled from "styled-components";
 import Container from "../../Common/Container";
 import { useBuscaPost } from "../../../Hooks/useBuscaPosts.js";
 
 const Section = styled.section`
     padding: 2rem 0;
-
-    h2{
-        font-weight: 500;
-        text-align: center;
-    }
 `
 const Ul = styled.ul`
     display: flex;
@@ -51,7 +45,6 @@ const GaleriaPosts = ()=> {
     return(
         <Section>
             <Container>
-                <h2> Posts recentes:</h2>
                 <Ul>
                     {posts.map( item => {
                         return(
