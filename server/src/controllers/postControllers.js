@@ -8,16 +8,26 @@ class PostController {
         } catch (erro) {
             res.status(500).send(`Erro ao conectar: ${erro.message}`);
         }
-    }
+    };
 
     static async cadastrarPost(req, res) {
         try{
             const novoPost = await post.create(req.body);
             res.status(201).json({mensagem: "Post Criado", post: novoPost});
         }catch(erro){
-            res.status(500).json({mensagem: "Erro ao cadastrar Post: ",  erro} )
+            res.status(500).json({mensagem: "Erro ao cadastrar Post: ",  erro} );
         }
-    }
-}
+    };
+
+    static async buscarPost (req, res) {
+        try{
+            const id = req.params.id;
+            const postBuscado = await post.findById(id);
+            res.status(200).json({postBuscado});
+        }catch(erro){
+            res.status(500).json({mensagem: "Livro nao encontrado!"});
+        }
+    };
+};
 
 export default PostController;
