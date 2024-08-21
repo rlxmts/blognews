@@ -1,6 +1,7 @@
+import react from "react";
 import styled from "styled-components";
 import Container from "../../Common/Container";
-import { useEffect, useState } from "react";
+import { useBuscaPost } from "../../../Hooks/useBuscaPosts.jsx";
 
 const Section = styled.section`
     padding: 2rem 0;
@@ -40,27 +41,19 @@ const PreviaTexto = styled.span`
     margin-top: 5px;
 `
 
-const GaleriaPosts = ()=> {
-    const [listaDePost, setListaDePost] = useState([]);
-    useEffect(()=> {
-        async function buscaApi(){
-            try{
-                const api = await fetch("http://localhost:3000/posts"); 
-                const apiConvertida = await api.json();
-                setListaDePost(apiConvertida);
-            }catch(error){
-                console.log("Erro na busca da API:", error);
-            }
-        }
-        buscaApi();
-    }, []);
+const GaleriaPosts = ()=> {    
 
+    const {posts, erro, carregando} = useBuscaPost();
+
+    if(carregando)return <p>Carregando...</p>
+    if(erro) return <p>{erro}</p>
+    
     return(
         <Section>
             <Container>
                 <h2> Posts recentes:</h2>
                 <Ul>
-                    {listaDePost.map( item => {
+                    {posts.map( item => {
                         return(
                             <Li key={item._id}>
                                 <a href="#">
