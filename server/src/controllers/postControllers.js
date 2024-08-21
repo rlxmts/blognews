@@ -9,6 +9,15 @@ class PostController {
             res.status(500).send(`Erro ao conectar: ${erro.message}`);
         }
     }
+
+    static async cadastrarPost(req, res) {
+        try{
+            const novoPost = await post.create(req.body);
+            res.status(201).json({mensagem: "Post Criado", post: novoPost});
+        }catch(erro){
+            res.status(500).json({mensagem: "Erro ao cadastrar Post: ",  erro} )
+        }
+    }
 }
 
 export default PostController;
