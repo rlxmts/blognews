@@ -1,6 +1,8 @@
+import axios from "axios";
 import styled from "styled-components";
 import Container from "../../components/Common/Container";
 import Botao from "../../components/Common/Botao";
+import { useState } from "react";
 
 const Section = styled.section`
     padding: 5rem 0;
@@ -44,23 +46,50 @@ const Section = styled.section`
 `
 
 const NovoPost = () => {
+
+    const [titulo, setTitulo] = useState('');
+    const [texto, setTexto] = useState('');
+    const [imagem, setImagem] = useState('');
+
+    const enviarPost = (e) => {
+        e.preventDefault();
+
+        axios.post('http://localhost:3000/posts', {
+            titulo: titulo,
+            texto: texto,
+            imagem: imagem
+        });
+    }
+
     return(
         <Section>
             <Container className="container-novopost">
-                <form>
+                <form onSubmit={(e)=> enviarPost(e)}>
                     <div>
                         <label htmlFor="titulo">Titulo do Artigo</label>
-                        <input id="titulo" required/>
+                        <input 
+                            onChange={(e)=> setTitulo(e.target.value)}
+                            id="titulo" 
+                            required
+                        />
                     </div>
                     <div>
                         <label htmlFor="texto">Texto</label>
-                        <textarea rows="8" id="texto"/>
+                        <textarea 
+                            onChange={(e)=> setTexto(e.target.value)}
+                            rows="8" 
+                            id="texto"
+                        />
                     </div>
                     <div>
                         <label htmlFor="imagem">Imagem</label>
-                        <input id="imagem" placeholder="http://...."/>
+                        <input
+                            onChange={(e)=> setImagem(e.target.value)} 
+                            id="imagem"     
+                            placeholder="http://..."
+                        />
                     </div>
-                    <Botao>Postar</Botao>
+                    <Botao type="submit">Postar</Botao>
                 </form>
             </Container>
         </Section>
