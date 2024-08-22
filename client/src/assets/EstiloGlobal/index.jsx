@@ -33,7 +33,7 @@ const EstiloGlobal = createGlobalStyle`
         font-size: 16px;
         color: #000000;
         font-weight: 400;
-        font-family: "Montserrat";
+        font-family: "Montserrat", sans-serif;
         list-style: none;
     }
 
