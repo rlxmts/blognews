@@ -59,6 +59,10 @@ const NovoPost = () => {
             texto: texto,
             imagem: imagem
         });
+
+        setTitulo('');
+        setTexto('');
+        setImagem('');
     }
 
     return(
@@ -68,6 +72,7 @@ const NovoPost = () => {
                     <div>
                         <label htmlFor="titulo">Titulo do Artigo</label>
                         <input 
+                            value={titulo}
                             onChange={(e)=> setTitulo(e.target.value)}
                             id="titulo" 
                             required
@@ -76,6 +81,7 @@ const NovoPost = () => {
                     <div>
                         <label htmlFor="texto">Texto</label>
                         <textarea 
+                            value={texto}
                             onChange={(e)=> setTexto(e.target.value)}
                             rows="8" 
                             id="texto"
@@ -84,6 +90,7 @@ const NovoPost = () => {
                     <div>
                         <label htmlFor="imagem">Imagem</label>
                         <input
+                            value={imagem} 
                             onChange={(e)=> setImagem(e.target.value)} 
                             id="imagem"     
                             placeholder="http://..."
