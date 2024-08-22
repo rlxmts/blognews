@@ -3,14 +3,13 @@ import styled from "styled-components";
 import Container from "../../components/Common/Container";
 import Botao from "../../components/Common/Botao";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Section = styled.section`
     padding: 5rem 0;
     
     .container-novopost{
         display: flex;
-        align-items: center;
-        justify-content: center;
         flex-direction: column;
         gap: 3rem;
     }
@@ -19,14 +18,12 @@ const Section = styled.section`
         width:100%;
         display: flex;
         flex-direction: column;
-        align-items: center;
         gap: 2rem;
 
         div{
             width: 100%;
             display: flex;
             flex-direction: column;
-            align-items: center;
             gap: 10px;
         }
     }
@@ -36,7 +33,6 @@ const Section = styled.section`
         border-radius: 10px;
         border: 1px solid #00000070;
         width: 100%;
-        max-width: 600px;
         padding: .5rem;
     }
 
@@ -68,6 +64,9 @@ const NovoPost = () => {
     return(
         <Section>
             <Container className="container-novopost">
+                <Link to="/admin">
+                    <Botao>Voltar para Painel Principal</Botao>
+                </Link>
                 <form onSubmit={(e)=> enviarPost(e)}>
                     <div>
                         <label htmlFor="titulo">Titulo do Artigo</label>
