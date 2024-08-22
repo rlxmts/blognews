@@ -17,10 +17,10 @@ const SecaoPost = styled.article`
             max-width: 500px;
         }
 
-        h1{
+        .titulo-post{
             max-width: 600px;
             font-size: 2rem;
-            font-family: "Poppins";
+            font-family: "Poppins", sans-serif;
             font-weight: 600;
             margin: 2rem 1rem 1rem 1rem;
         }
@@ -53,7 +53,7 @@ const Post = () => {
         <SecaoPost>  
             <Container className="container-post">
                 <img src={livrofiltrado.imagem} />
-                <h1>{livrofiltrado.titulo}</h1>
+                <h1 style={{fontFamily: 'Poppins'}} className="titulo-post">{livrofiltrado.titulo}</h1>
                 <p>{livrofiltrado.texto}</p>
             </Container>
         </SecaoPost>
