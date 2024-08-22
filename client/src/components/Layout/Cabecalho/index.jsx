@@ -3,8 +3,10 @@ import Container from "../../Common/Container";
 import Logo from "../../Common/Logo";
 import CampoPesquisa from "../../Common/CampoPesquisa";
 import { FaRegMoon } from "react-icons/fa6";
+import { LuSun } from "react-icons/lu";
 import { Link } from "react-router-dom";
-import Login from "../../../Pages/Login";
+import { useContext, useState } from "react";
+import { TemaContext } from "../../../Context/ThemeContext";
 
 const Header = styled.header`
     height: 70px;
@@ -19,6 +21,7 @@ const Header = styled.header`
         display: flex;
         align-items: center;
         justify-content: space-between;
+        background-color: transparent;
     }
 
     .botao-login{
@@ -26,18 +29,22 @@ const Header = styled.header`
         font-family: "Poppins";
         font-weight: 500;
         font-size: .9rem;
+        background-color: transparent;
     }
 `
 const Div = styled.div`
     display: flex ;
     gap: 10px;
     align-items: center;
-
+    background-color: transparent;
     .icon-tema{
+        background-color: transparent;
         cursor: pointer;
     }
 `
 const Cabecalho = () => {
+    const {tema, trocaTema} = useContext(TemaContext);
+
     return(
         <>
             <Header>
@@ -45,7 +52,21 @@ const Cabecalho = () => {
                         <Logo />
                         <Div>
                             {/* <CampoPesquisa /> */}
-                            <FaRegMoon className="icon-tema" size={20} fill="#FFFFFF"/>
+                            {tema === 'light' ? 
+                            <FaRegMoon 
+                                onClick={trocaTema}
+                                className="icon-tema" 
+                                size={20} 
+                                fill="#FFFFFF"
+                            />
+                            :
+                            <LuSun
+                                onClick={trocaTema}
+                                className="icon-tema" 
+                                size={20} 
+                                fill="#FFFFFF" 
+                            />
+                            }
                             <Link to="/login" className="botao-login">Login</Link>
                         </Div>
                 </Container>

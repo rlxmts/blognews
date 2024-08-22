@@ -41,14 +41,13 @@ const Form = styled.form`
         width: 300px;
         padding: .5rem;
         border-radius: 10px;
-        border: 1px solid #00000070;
-        margin-right: 10px;
+        margin-top: 10px;
     }
 
     .icone-olho{
         cursor: pointer;
         position: absolute;
-        right: 15px;
+        right: 8px;
         bottom: 8px;
     }
 `

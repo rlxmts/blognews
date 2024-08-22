@@ -22,7 +22,7 @@ const SecaoPost = styled.article`
             font-size: 2rem;
             font-family: "Poppins", sans-serif;
             font-weight: 600;
-            margin: 2rem 1rem 1rem 1rem;
+            margin: 2rem 0 1rem 0;
         }
 
         p{

@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import GaleriaPosts from "../../components/Sections/GaleriaPosts"
+import GaleriaPosts from "../../components/Sections/GaleriaPosts";
+import Container from "../../components/Common/Container";
 
 const Section = styled.section`
     padding: 5rem 0;
@@ -11,10 +12,14 @@ const H2 = styled.h2`
 `
 
 const Home = ()=> {
+
+
     return(
-        <Section>            
-            <H2> Posts recentes:</H2>
-            <GaleriaPosts />
+        <Section>         
+            <Container>
+                <H2> Posts recentes:</H2>
+                <GaleriaPosts />
+            </Container> 
         </Section>
     )
 }

@@ -24,6 +24,7 @@ const EstiloGlobal = createGlobalStyle`
     }
 
     *{
+        background-color: ${({ theme }) => theme.fundo};
         padding: 0;
         margin: 0;
         text-decoration: none;
@@ -31,10 +32,19 @@ const EstiloGlobal = createGlobalStyle`
         font-style: normal;
         box-sizing: border-box;
         font-size: 16px;
-        color: #000000;
+        color: ${({ theme }) => theme.texto};
         font-weight: 400;
         font-family: "Montserrat", sans-serif;
         list-style: none;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    input{
+        border: 1px solid ${({ theme }) => theme.borda}; 
+    }
+
+    .item-post{
+        border: 1px solid ${({ theme }) => theme.borda}; 
     }
 
     .esconder{

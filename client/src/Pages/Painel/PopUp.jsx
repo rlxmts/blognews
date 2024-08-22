@@ -26,6 +26,8 @@ const PopUp = styled.div`
         text-transform: uppercase;
         font-size: .7rem;
         font-weight: 600;
+        background-color: transparent;
+        color: #000000;
     }
     
     .caixa-bts{
@@ -34,6 +36,7 @@ const PopUp = styled.div`
         gap: 1rem;
         justify-content: center;
         margin-top: 1rem;
+        background-color: transparent;
 
 
         button{

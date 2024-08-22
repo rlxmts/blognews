@@ -31,7 +31,6 @@ const Section = styled.section`
     input, textarea{
         outline: none;
         border-radius: 10px;
-        border: 1px solid #00000070;
         width: 100%;
         padding: .5rem;
     }

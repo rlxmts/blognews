@@ -7,7 +7,6 @@ import { FaRegEdit } from "react-icons/fa";
 import styled from "styled-components";
 import PopUpDelete from "./PopUp.jsx";
 import { useState } from "react";
-import post from "../../../../server/src/models/Posts.js";
 
 const SecaoPainel = styled.section`
     padding: 5rem 0;
@@ -90,7 +89,7 @@ const Painel = () => {
                 <ul>
                     {posts.map(post => {
                         return(
-                            <LinkPost key={post._id}>
+                            <LinkPost className="item-post" key={post._id}>
                                 {post.titulo}
                                 <OpcaoesAdm>
                                     <FaRegTrashCan 
