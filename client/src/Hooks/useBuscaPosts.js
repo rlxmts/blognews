@@ -21,5 +21,5 @@ export const useBuscaPost = ()=> {
         buscaApi();
     }, []);
 
-    return {posts, erro, carregando};
+    return {posts, setPosts, erro, carregando};
 };
