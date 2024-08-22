@@ -48,7 +48,7 @@ const Form = styled.form`
     .icone-olho{
         cursor: pointer;
         position: absolute;
-        right: -15px;
+        right: 15px;
         bottom: 8px;
     }
 `
