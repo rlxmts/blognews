@@ -44,7 +44,7 @@ const Cabecalho = () => {
                 <Container className="container-header">
                         <Logo />
                         <Div>
-                            <CampoPesquisa />
+                            {/* <CampoPesquisa /> */}
                             <FaRegMoon className="icon-tema" size={20} fill="#FFFFFF"/>
                             <Link to="/login" className="botao-login">Login</Link>
                         </Div>
