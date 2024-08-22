@@ -7,6 +7,7 @@ import { FaRegEdit } from "react-icons/fa";
 import styled from "styled-components";
 import PopUpDelete from "./PopUp.jsx";
 import { useState } from "react";
+import post from "../../../../server/src/models/Posts.js";
 
 const SecaoPainel = styled.section`
     padding: 5rem 0;
@@ -56,7 +57,7 @@ const OpcaoesAdm = styled.div`
 
 
 const Painel = () => {
-    const {posts} = useBuscaPost();
+    const {posts, setPosts} = useBuscaPost();
     const [popUpVisivel, setPopVisivel] = useState(false);
     const [postSelecionado, setPostSelecionado] = useState('');
 
@@ -66,7 +67,14 @@ const Painel = () => {
     }
 
     const deletarConfirmado = async ()=> {
-        await axios.delete(`http://localhost:3000/posts/${postSelecionado}`);
+        const listaAtualiza = posts.filter( post => post._id !== postSelecionado);
+        setPosts(listaAtualiza);
+        try{
+            await axios.delete(`http://localhost:3000/posts/${postSelecionado}`);
+        }catch(erro){
+            console.log(erro);
+            setPosts(postsAnteriores => [...postsAnteriores, posts.find(post => post._id === postSelecionado)]);
+        }
         setPopVisivel(false);
     }
 
