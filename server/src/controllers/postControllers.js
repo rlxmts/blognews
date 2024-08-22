@@ -28,6 +28,16 @@ class PostController {
             res.status(500).json({mensagem: "Livro nao encontrado!"});
         }
     };
+
+    static async deletarPost (req,res) {
+        try{
+            const id = req.params.id;
+            await post.findByIdAndDelete(id, req.body);
+            res.status(200).json({ mensagen: "post deletado com Sucesso!" });
+        }catch(erro){
+            res.status(500).json({mensagem: "Erro ao deletar!"})
+        }
+    }
 };
 
 export default PostController;
