@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useBuscaPost } from "../../Hooks/useBuscaPosts.js";
 import Container from "../../components/Common/Container";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { FaRegEdit } from "react-icons/fa";
@@ -54,19 +53,18 @@ const OpcaoesAdm = styled.div`
     }
 `
 const Painel = () => {
-    const {posts} = useBuscaPost();
     const [popUpVisivel, setPopVisivel] = useState(false);
     const [postSelecionado, setPostSelecionado] = useState('');
-    const {deletaPost} = useDeletaPost();
+    const {deletaPost, posts} = useDeletaPost();
 
     const abrirPopUp = (post)=> {
         setPopVisivel(true);
         setPostSelecionado(post);
     }
 
-    const confirmaExclusao = () =>{
-        deletaPost(postSelecionado);
-        setPopVisivel(false)
+    const confirmaExclusao = async () =>{
+        await deletaPost(postSelecionado);
+        setPopVisivel(false);
     }
 
     const deletarCancelado = () => {
