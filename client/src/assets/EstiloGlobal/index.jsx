@@ -54,6 +54,12 @@ const EstiloGlobal = createGlobalStyle`
         width: 1px;
         height: 1px;
     }
+
+    .msg-erro{
+        color: red;
+        font-weight: 600;
+        margin-top: 1rem;
+    }
 `
 
 export default EstiloGlobal;
