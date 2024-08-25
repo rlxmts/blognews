@@ -16,7 +16,7 @@ const Ul = styled.ul`
 `
 const Li = styled.li`
     padding: 1rem;
-    border: 1px solid #00000070;
+    border: 1px solid ;
     border-radius: 10px;
 `
 
