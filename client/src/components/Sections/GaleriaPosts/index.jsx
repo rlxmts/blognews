@@ -40,7 +40,7 @@ const GaleriaPosts = ()=> {
     const {posts, erro, carregando} = useBuscaPost();
 
     if(carregando)return <p>Carregando...</p>
-    if(erro) return <p>{erro}</p>
+    if(erro) return <p className="msg-erro">Parece que houve um erro ao carregar o conteúdo: {erro.message}</p>
     
     return(
         <Section>
