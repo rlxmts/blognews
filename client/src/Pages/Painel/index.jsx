@@ -6,6 +6,7 @@ import styled from "styled-components";
 import PopUpDelete from "./PopUpDelete.jsx";
 import { useState } from "react";
 import { useDeletaPost } from "../../Hooks/useDeletaPost.js";
+import PopUpEdita from "./PopUpEdita.jsx";
 
 const SecaoPainel = styled.section`
     padding: 5rem 0;
@@ -54,6 +55,7 @@ const OpcaoesAdm = styled.div`
 `
 const Painel = () => {
     const [popUpVisivel, setPopVisivel] = useState(false);
+    const [popUpEditarVisivel, setPopEditarVisivel] = useState(false);
     const [postSelecionado, setPostSelecionado] = useState('');
     const {deletaPost, posts} = useDeletaPost();
 
@@ -62,13 +64,23 @@ const Painel = () => {
         setPostSelecionado(post);
     }
 
-    const confirmaExclusao = async () =>{
-        await deletaPost(postSelecionado);
+    const confirmaExclusao =  () =>{
+        deletaPost(postSelecionado);
         setPopVisivel(false);
     }
 
     const deletarCancelado = () => {
         setPopVisivel(false);
+    }
+
+    const [postParaEditar, setPostParaEditar] = useState('');
+    const abrirPopUpEditar = (post)=> {
+        setPopEditarVisivel(true);
+        setPostParaEditar(post)
+    }
+
+    const fecharModalEditar = ()=> {
+        setPopEditarVisivel(false)
     }
 
     return(
@@ -87,14 +99,27 @@ const Painel = () => {
                                         className="icone-opcao-delete" 
                                         onClick={()=> abrirPopUp(post._id)}
                                     />
-                                    <FaRegEdit size={20} />
+                                    <FaRegEdit 
+                                        size={20}
+                                        onClick={()=> abrirPopUpEditar(post)} 
+                                    />
                                 </OpcaoesAdm>
                             </LinkPost>
                         )
                     })}
                 </ul>
                 {popUpVisivel ? 
-                    <PopUpDelete  aoClicarConfirmar={confirmaExclusao} aoClicarCancelar={deletarCancelado} />  : ''}                
+                    <PopUpDelete  aoClicarConfirmar={confirmaExclusao} aoClicarCancelar={deletarCancelado} />  : ''
+                }
+                {popUpEditarVisivel ?
+                    <PopUpEdita 
+                        aoClicarFechar={fecharModalEditar}
+                        postTitulo={postParaEditar.titulo}
+                        postTexto={postParaEditar.texto}
+                        postImagem={postParaEditar.imagem}
+                        postId={postParaEditar._id}
+                    />  : ''             
+                }
             </Container>
         </SecaoPainel>
     )

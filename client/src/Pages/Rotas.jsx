@@ -22,7 +22,7 @@ const App = ()=> {
 
 const AppRotas = () => {
 
-    const {tema, trocaTema} = useContext(TemaContext);
+    const {tema} = useContext(TemaContext);
 
     return(
         <StyledThemeProvider theme={ tema === 'light' ? temaClaro : temaEscuro}>
