@@ -3,7 +3,7 @@ import post from "../models/Posts.js";
 class PostController {
     static async listarPosts(req, res) {
         try {
-            const listaDePost = await post.find({});
+            const listaDePost = await post.find({}).sort({ date: -1 });
             res.status(200).json(listaDePost);
         } catch (erro) {
             res.status(500).send(`Erro ao conectar: ${erro.message}`);
