@@ -1,6 +1,8 @@
 
 <h1>Blog Pessoal - Fullstack Project</h1>
-
+<br>
+<img src="https://github.com/user-attachments/assets/e1925461-fb9a-414a-915d-51a2025ec0ec" />
+<br><br>
 Este é um projeto de blog pessoal desenvolvido com a intenção de compartilhar ideias, motivações e aprendizados com novos profissionais da área de tecnologia. O projeto foi construído com uma stack Fullstack utilizando tecnologias modernas tanto para o front-end quanto para o back-end.
 
 ## 🚀 Tecnologias Utilizadas
