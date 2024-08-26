@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const usuarioSchema = new mongoose.Schema({
     id: {type: mongoose.Schema.Types.ObjectId },
-    usuario: String,
+    nome: String,
     senha: String
 }, {versionKey: false});
 
