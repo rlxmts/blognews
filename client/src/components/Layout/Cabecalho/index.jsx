@@ -7,6 +7,7 @@ import { LuSun } from "react-icons/lu";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { TemaContext } from "../../../Context/ThemeContext";
+import { AuthContext } from "../../../Context/AuthContext";
 
 const Header = styled.header`
     height: 70px;
@@ -44,6 +45,9 @@ const Div = styled.div`
 `
 const Cabecalho = () => {
     const {tema, trocaTema} = useContext(TemaContext);
+    const { autenticado } = useContext(AuthContext);
+    const rotaBtLogin = autenticado ? '/admin' : '/login';
+    const textoBtLogin = autenticado ? 'Painel' : 'Login';
 
     return(
         <>
@@ -67,7 +71,7 @@ const Cabecalho = () => {
                                 fill="#FFFFFF" 
                             />
                             }
-                            <Link to="/login" className="botao-login">Login</Link>
+                            <Link to={rotaBtLogin} className="botao-login">{textoBtLogin}</Link>
                         </Div>
                 </Container>
             </Header>

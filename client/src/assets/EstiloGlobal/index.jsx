@@ -60,6 +60,14 @@ const EstiloGlobal = createGlobalStyle`
         font-weight: 600;
         margin-top: 1rem;
     }
+
+    .acesso-negado{
+        text-align: center;
+        width: 100%;
+        max-width: 300px;
+        margin: 2rem auto;
+        font-weight: 600;
+    }
 `
 
 export default EstiloGlobal;

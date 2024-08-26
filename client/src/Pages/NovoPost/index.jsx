@@ -2,8 +2,9 @@ import axios from "axios";
 import styled from "styled-components";
 import Container from "../../components/Common/Container";
 import Botao from "../../components/Common/Botao";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthContext";
 
 const Section = styled.section`
     padding: 5rem 0;
@@ -45,6 +46,7 @@ const NovoPost = () => {
     const [titulo, setTitulo] = useState('');
     const [texto, setTexto] = useState('');
     const [imagem, setImagem] = useState('');
+    const {autenticado} = useContext(AuthContext);
 
     const enviarPost = (e) => {
         e.preventDefault();
@@ -58,6 +60,10 @@ const NovoPost = () => {
         setTitulo('');
         setTexto('');
         setImagem('');
+    }
+
+    if(!autenticado){
+        return(<p className="acesso-negado">Acesso Negado!</p>)
     }
 
     return(

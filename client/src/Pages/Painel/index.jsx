@@ -4,9 +4,10 @@ import { FaRegTrashCan } from "react-icons/fa6";
 import { FaRegEdit } from "react-icons/fa";
 import styled from "styled-components";
 import PopUpDelete from "./PopUpDelete.jsx";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useDeletaPost } from "../../Hooks/useDeletaPost.js";
 import PopUpEdita from "./PopUpEdita.jsx";
+import { AuthContext } from "../../Context/AuthContext.jsx";
 
 const SecaoPainel = styled.section`
     padding: 5rem 0;
@@ -58,7 +59,7 @@ const Painel = () => {
     const [popUpEditarVisivel, setPopEditarVisivel] = useState(false);
     const [postSelecionado, setPostSelecionado] = useState('');
     const {deletaPost, posts} = useDeletaPost();
-
+    const {autenticado} = useContext(AuthContext);
     const abrirPopUp = (post)=> {
         setPopVisivel(true);
         setPostSelecionado(post);
@@ -81,6 +82,10 @@ const Painel = () => {
 
     const fecharModalEditar = ()=> {
         setPopEditarVisivel(false)
+    }
+
+    if(!autenticado){
+        return(<p className="acesso-negado">Acesso negado!</p>)
     }
 
     return(

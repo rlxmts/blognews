@@ -11,6 +11,7 @@ import Post from "./Post";
 import { temaClaro, temaEscuro } from "../assets/EstiloGlobal/tema";
 import { useContext } from "react";
 import { TemaContext, TemaProvider } from "../Context/ThemeContext";
+import { AuthProvider } from "../Context/AuthContext";
 
 const App = ()=> {
     return(
@@ -28,15 +29,17 @@ const AppRotas = () => {
         <StyledThemeProvider theme={ tema === 'light' ? temaClaro : temaEscuro}>
             <EstiloGlobal />
             <BrowserRouter>
-            <Cabecalho />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/admin" element={<Painel />} />
-                <Route path="/novo-post" element={<NovoPost />} />
-                <Route path="/post/:id" element={<Post />} />
-            </Routes>
-            <Rodape />
+            <AuthProvider>
+                <Cabecalho />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/admin" element={<Painel />} />
+                    <Route path="/novo-post" element={<NovoPost />} />
+                    <Route path="/post/:id" element={<Post />} />
+                </Routes>
+                <Rodape />
+            </AuthProvider>
             </BrowserRouter>
         </StyledThemeProvider>
     )

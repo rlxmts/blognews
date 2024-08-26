@@ -12,8 +12,6 @@ const H2 = styled.h2`
 `
 
 const Home = ()=> {
-
-
     return(
         <Section>         
             <Container>
